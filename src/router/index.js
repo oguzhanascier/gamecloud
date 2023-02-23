@@ -1,6 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Ekle from '../views/OyunEkle.vue'
+import OyunList from '../views/OyunList.vue'
+import { authRef } from '@/firebase/config'
+
+
+const authControl = (to, from, next) => {
+  let user = authRef.currentUser
+
+  if (!user) {
+    next({ name: 'Home' })
+  } else {
+    next()
+  }
+}
 
 const routes = [
   {
@@ -13,13 +26,18 @@ const routes = [
     name: 'about',
 
     component: function () {
-      return import( '../views/AboutView.vue')
+      return import('../views/AboutView.vue')
     }
   },
   {
     path: '/ekle',
     name: 'ekle',
     component: Ekle
+  },
+  {
+    path: '/oyunlar',
+    name: 'oyunlar',
+    component: OyunList
   },
 ]
 
