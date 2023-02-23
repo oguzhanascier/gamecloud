@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Ekle from '../views/OyunEkle.vue'
 
 const routes = [
   {
@@ -14,7 +15,12 @@ const routes = [
     component: function () {
       return import( '../views/AboutView.vue')
     }
-  }
+  },
+  {
+    path: '/ekle',
+    name: 'ekle',
+    component: Ekle
+  },
 ]
 
 const router = createRouter({
