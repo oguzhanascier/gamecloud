@@ -19,20 +19,27 @@ export default {
 
 <style scoped>
 .home{
+  height: 100vh;
   display: flex;
   justify-content: center;
 }
 .body{
-  background: rgba(225, 202, 247, 0.437);
   width: 50%;
   text-align: center;
   padding: 10px;
   height: 300px;
 }
+h1{
+  color: white;
+
+}
+
+p{
+  color: white;
+}
 
 button{
-  background: rebeccapurple;
-  color: white;
+  color: black;
   font-size: 16px;
   font-weight: 400;
   width: 120px;
