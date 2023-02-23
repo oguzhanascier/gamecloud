@@ -3,7 +3,7 @@
     <div class="body">
       <h1>Game Cloud</h1>
       <p>Buluta oyun eklemek ve oyunları görmek için giriş yapınız.</p>
-      <button>Misafir Girişi</button>
+      <button @click="handleGiris">Misafir Girişi</button>
     </div >
   </div>
 </template>
