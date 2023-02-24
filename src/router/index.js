@@ -32,12 +32,15 @@ const routes = [
   {
     path: '/ekle',
     name: 'ekle',
-    component: Ekle
+    component: Ekle,
+  beforeEnter: authControl
   },
   {
     path: '/oyunlar',
     name: 'oyunlar',
-    component: OyunList
+    component: OyunList,
+    beforeEnter: authControl
+
   },
 ]
 
