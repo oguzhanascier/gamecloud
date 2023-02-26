@@ -2,10 +2,9 @@
     <div class="oyunList">
         <h1>Oyun Listesi</h1>
         <ul>
-            <li v-for="oyun in oyunlar" :key="oyun.id">
-                <span>videogame-assest</span>
+            <li v-for="oyun in oyunlar" :key="oyun.id" @click="oyunSil(oyun.id)">
                 <div>
-                    {{ oyun.oyunAd }}
+                    {{ oyun.oyundAd }}
                 </div>
             </li>
         </ul>
@@ -21,7 +20,10 @@ export default {
         const oyunlar = computed(() => {
             return store.state.oyunlar;
         })
-        return { oyunlar }
+        const oyunSil = (id) => {
+            store.dispatch('oyunSilAction', id)
+        }
+        return { oyunlar,oyunSil }
     }
 }
 </script>
@@ -40,6 +42,7 @@ export default {
     list-style-type: none;
     background: white;
     padding: 30px;
+    margin-top: 20px;
     border-radius: 10px;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
