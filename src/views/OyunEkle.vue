@@ -1,11 +1,10 @@
 <template>
-    <div>
-        simit
-    </div>
+    
 </template>
 
-<script setup >
-
+<script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 </script>
 
 <style scoped>
