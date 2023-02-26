@@ -26,7 +26,7 @@ export default createStore({
   },
   actions: {
     oyunEkleAction(context, oyun) {
-      context.commit('EkleMutation', oyun)
+      context.commit('ekleMutation', oyun)
     },
     oyunSilAction(context, id) {
       context.commit('silMutation', id)
