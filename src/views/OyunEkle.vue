@@ -13,6 +13,7 @@
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { ref } from 'vue';
+import gameModal from '@/components/gameModal.vue';
 export default {
     setup() {
         const store = useStore()
