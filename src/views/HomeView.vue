@@ -1,10 +1,11 @@
 <template>
   <div class="home">
+   
     <div class="body">
       <h1>Game Cloud</h1>
       <p>Buluta oyun eklemek ve oyunları görmek için giriş yapınız.</p>
       <button @click="handleGiris">Misafir Girişi</button>
-    </div >
+    </div>
   </div>
 </template>
 
@@ -20,7 +21,8 @@ export default {
       await login()
       router.push({ name: 'ekle' })
     }
-    return {handleGiris}
+
+    return { handleGiris }
   }
 }
 </script>
