@@ -15,9 +15,11 @@ import { useStore } from 'vuex';
 import { ref } from 'vue';
 import gameModal from '@/components/gameModal.vue';
 export default {
+    components: { gameModal },
     setup() {
         const store = useStore()
         const yeniOyun = ref('')
+        const showModal = ref(false)
         const oyunlar = computed(() => {
             return store.state.oyunlar
         })
@@ -26,10 +28,14 @@ export default {
                 store.dispatch('oyunEkleAction', yeniOyun.value)
                 yeniOyun.value = ''
             } else {
-                console.log('object');
+                triggerModal()
             }
         }
-      
+        const triggerModal = () => {
+            showModal.value = true
+
+            setTimeout(() => showModal.value = false, 3000)
+        }
         return { oyunlar, yeniOyun, oyunEkle }
     }
 
@@ -38,7 +44,7 @@ export default {
 </script>
 
 <style scoped>
-input{
+input {
     border: none;
     padding: 5px;
     width: 350px;
@@ -49,14 +55,14 @@ input{
     box-shadow: 5px 5px 5px black;
 }
 
-input:focus{
+input:focus {
     box-shadow: 0px 1px 1px black inset;
 }
 
-.oyunlar{
+.oyunlar {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    
+
 }
 </style>
