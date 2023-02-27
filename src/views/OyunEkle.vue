@@ -1,12 +1,9 @@
 <template>
     <div class="oyunlar">
         <input type="text" v-model="yeniOyun" @keypress.enter="oyunEkle" placeholder="Oyun Ekle">
-        <ul>
-            <!-- <li v-for="oyun in oyunlar" :key="oyun.id" @click="oyunSil(oyun.id)">
-                {{ oyun.oyunAd }}
-            </li> -->
-        </ul>
+
     </div>
+    <gameModal v-if="showModal" />
 </template>
 
 <script>
@@ -20,6 +17,11 @@ export default {
         const store = useStore()
         const yeniOyun = ref('')
         const showModal = ref(false)
+        const triggerModal = () => {
+            showModal.value = true
+
+            setTimeout(() => showModal.value = false, 3000)
+        }
         const oyunlar = computed(() => {
             return store.state.oyunlar
         })
@@ -31,12 +33,8 @@ export default {
                 triggerModal()
             }
         }
-        const triggerModal = () => {
-            showModal.value = true
-
-            setTimeout(() => showModal.value = false, 3000)
-        }
-        return { oyunlar, yeniOyun, oyunEkle }
+     
+        return { oyunlar, yeniOyun, oyunEkle, showModal }
     }
 
 }
